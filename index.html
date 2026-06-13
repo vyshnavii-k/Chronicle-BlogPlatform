@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>                                                                                                          <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chronicle Blog Space</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <h1 class="logo" onclick="showFeedView()">Chronicle.io</h1>                                                 <nav id="nav-actions" class="hidden">
+                <span id="user-display-badge" class="user-badge">@user</span>                                               <button class="btn-primary" onclick="showComposeView()">✍️ New Post</button>
+                <button class="btn-logout" onclick="logout()">Logout</button>
+            </nav>
+        </div>
+    </header>
+
+    <div class="main-container">
+        <div id="alert-banner" class="alert hidden"></div>
+
+        <section id="auth-view" class="card-center">
+            <div class="auth-card">
+                <h2 id="auth-title">Welcome to Chronicle</h2>
+                <form id="auth-form">
+                    <div class="form-group">
+                        <label>Username</label>
+                        <input type="text" id="username" required placeholder="Pick a handle name">
+                    </div>
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" id="password" required placeholder="••••••••">
+                    </div>
+                    <button type="submit" id="btn-auth-submit" class="btn-primary">Sign In</button>
+                </form>
+                <div class="auth-toggle-box">
+                    <span id="auth-toggle-link" onclick="toggleAuthMode()">Don't have an account? Register here</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="compose-view" class="hidden">
+            <div class="view-header">
+                <h2 id="composer-title">Draft New Publication</h2>
+                <button class="btn-secondary" onclick="showFeedView()">Cancel</button>
+            </div>
+            <div class="card-large">
+                <form id="post-form">
+                    <input type="hidden" id="edit-post-id">
+                    <div class="form-group">
+                        <label>Publication Title</label>
+                        <input type="text" id="post-title" required placeholder="Capture attention with a descriptive title...">
+                    </div>
+                    <div class="form-group">
+                        <label>Article Body</label>
+                        <textarea id="post-content" required rows="10" placeholder="Share your stories, ideas, or deep technical reviews..."></textarea>
+                    </div>
+                    <button type="submit" id="btn-post-submit" class="btn-primary">Publish Article</button>
+                </form>
+            </div>
+        </section>
+
+        <section id="feed-view" class="hidden">
+            <h2 class="section-title">Latest Publications</h2>
+            <div id="blog-feed-container" class="feed-layout">
+                </div>
+        </section>
+    </div>
+</body>
+<script src="script.js"></script>
+</html>
